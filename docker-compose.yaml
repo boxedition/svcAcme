@@ -1,0 +1,43 @@
+name: svc-acme
+services:
+  acme:
+    ports:
+      - 8080:8080
+    container_name: acme
+    image: ankraft/acme-onem2m-cse
+    networks:
+      - mosquitto-network
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - 9001:9001
+    volumes:
+      - ./config:/mosquitto/config:rw
+      - ./data:/mosquitto/data:rw
+      - ./log:/mosquitto/log:rw
+    restart: unless-stopped
+    networks:
+      - mosquitto-network
+
+  tunnel:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    networks:
+      - tunnel
+      - mosquitto-network
+    environment:
+      TUNNEL_TOKEN: "${CF_TOKEN}"
+
+volumes:
+  config:
+  data:
+  log:
+
+networks:
+  mosquitto-network:
+  tunnel:
+    external: true
