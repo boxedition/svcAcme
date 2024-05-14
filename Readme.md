@@ -1,8 +1,14 @@
-# Service Acme
+# Serviço Acme
 
-Uma solução de implementação acme e mqtt para notificação.
+Uma solução de implementação Acme M2M a usufruir de MQTT para notificação.
 
 ## Requesitos
+
+Clonar projeto:
+
+```sh
+git clone https://github.com/boxedition/svcAcme
+```
 
 Criar .env:
 
@@ -12,7 +18,7 @@ cp .env.example .env
 #Editar token para o cloudflare tunnel
 ```
 
-## Desenvolvimento
+## Inicial Preparation
 
 Inicializar mqtt on docker via compose:
 
