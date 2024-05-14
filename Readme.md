@@ -1,9 +1,23 @@
+# Service Acme
+
+Uma solução de implementação acme e mqtt para notificação.
+
+## Requesitos
+
+Criar .env:
+
+```sh
+#Criar .env com base no .env.example
+cp .env.example .env
+#Editar token para o cloudflare tunnel
+```
+
 ## Desenvolvimento
 
 Inicializar mqtt on docker via compose:
 
 ```sh
-docker-compose -d -p mqtt5 up
+docker compose up -d
 ```
 
 Abrir uma shell dentro do container de mqtt:
