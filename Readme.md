@@ -1,6 +1,6 @@
 # Serviço Acme
 
-Uma solução de implementação Acme M2M a usufruir de MQTT para notificação.
+Uma solução de implementação Acme M2M a utilizar de MQTT para notificação.
 
 ## Requesitos
 
@@ -18,15 +18,15 @@ cp .env.example .env
 #Editar token para o cloudflare tunnel
 ```
 
-## Inicial Preparation
+## Preparação Inicial
 
-Inicializar mqtt on docker via compose:
+Inicializar docker compose:
 
 ```sh
 docker compose up -d
 ```
 
-Abrir uma shell dentro do container de mqtt:
+Abrir uma shell dentro do container de MQTT:
 
 ```sh
 #List containers
@@ -37,7 +37,7 @@ docker exec -it <container-id> sh
 
 > Note: `/ #` no terminal.
 
-Adicionar um user para o mqtt:
+Adicionar um user para o serviço MQTT:
 
 ```sh
 #Adicionar user mqtt
